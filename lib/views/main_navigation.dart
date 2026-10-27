@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'profile_screen.dart';
 import '../home_screen.dart';
 import 'assignment_list_screen.dart';
 import 'course_list_screen.dart';
@@ -18,6 +19,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     const HomeScreen(),
     const AssignmentListScreen(),
     const CourseListScreen(),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -31,15 +33,21 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     return Scaffold(
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.purple,
+        unselectedItemColor: Colors.grey,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+
           BottomNavigationBarItem(
             icon: Icon(Icons.assignment),
             label: 'Assignments',
           ),
+
           BottomNavigationBarItem(icon: Icon(Icons.school), label: 'Courses'),
+
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );
